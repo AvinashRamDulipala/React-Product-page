@@ -6,19 +6,26 @@ var React = require('react');
  */
 var ProductBuyActions = React.createClass({
 
-  componentDidMount: function(){
-      // console.log(this.props)
-  },
 
+  /**
+   * Determine wether or not hte product is available in store.
+   * @return {Boolean}
+   */
   isAvailableRetail: function() {
     let availability = this.props.availabilityCode;
     return (availability === "0" || availability === "2")
   },
 
+
+  /**
+   * Determine wether or not hte product is available online.
+   * @return {Boolean}
+   */
   isAvailableOnline: function() {
     let availability = this.props.availabilityCode;
     return (availability === "0" || availability === "1")
   },
+
 
   /**
    * Renders the component
@@ -37,14 +44,10 @@ var ProductBuyActions = React.createClass({
                 Pickup in Store
               </button>
               <div className="caption">Find in a Store</div></div>}
-
-              {showOnlineButton &&
-                <div className="col-xs-12 col-sm-6">
-                  <button className="btn btn-primary btn-lg btn-full">Add to Cart</button>
-                </div>}
-
-
-
+            {showOnlineButton &&
+              <div className="col-xs-12 col-sm-6">
+                <button className="btn btn-primary btn-lg btn-full">Add to Cart</button>
+              </div>}
         </div>
       </div>
     )

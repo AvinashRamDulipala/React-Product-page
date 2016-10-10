@@ -1,8 +1,7 @@
 var React = require('react');
 
 /**
- * [ProductSecondaryActions description]
- * @type {[type]}
+ * Displays secondary (lower priority) actions
  */
 var ProductSecondaryActions = React.createClass({
 

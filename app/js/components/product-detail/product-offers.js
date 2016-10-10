@@ -1,8 +1,7 @@
 var React = require('react');
 
 /**
- * [ProductOffers description]
- * @type {[type]}
+ * Displays a stylized list containing product offers.
  */
 var ProductOffers = React.createClass({
 

@@ -1,8 +1,7 @@
 var React = require('react');
 
 /**
- * [ProductPrice description]
- * @type {[type]}
+ * Displays the product price.
  */
 var ProductPrice = React.createClass({
 

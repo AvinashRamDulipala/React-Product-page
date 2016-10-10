@@ -51,8 +51,7 @@
 	var Product = __webpack_require__(172);
 
 	/**
-	 * [Main description]
-	 * @type {[type]}
+	 * Main Application component
 	 */
 	var Main = React.createClass({
 	  displayName: 'Main',
@@ -21457,16 +21456,14 @@
 	var ProductDetail = __webpack_require__(182);
 
 	/**
-	* [Product description]
-	* @type {[type]}
+	* Product Detail Component
 	*/
 	var Product = React.createClass({
 	  displayName: 'Product',
 
 
 	  /**
-	   * [componentWillMount description]
-	   * @return {[type]} [description]
+	   * Called before the render method is executed. Fetches data and sets it.
 	   */
 	  componentWillMount: function componentWillMount() {
 	    var self = this;
@@ -21491,16 +21488,18 @@
 	  },
 
 	  /**
-	   * [componentWillUnmount description]
-	   * @return {[type]} [description]
+	   * Invoked immediately before component is unmounted from the DOM.
+	   * Abort data fetch.
 	   */
 	  componentWillUnmount: function componentWillUnmount() {
 	    this.serverRequest.abort(); // trigger fetch cancellation
 	  },
 
 	  /**
-	   * [getInitialState description]
-	   * @return {[type]} [description]
+	   * Set initial state properties
+	   *
+	   * @return {Object} state initial props used throughout all other
+	   *                        child components
 	   */
 	  getInitialState: function getInitialState() {
 	    return {
@@ -21570,8 +21569,8 @@
 	   * Sets the initial state properties on the components
 	   *
 	   * @return Object state
-	   *  {Number} currentSlide Index of the current active slide
-	   *  {Boolean} isLeftDisabled true if the currentSlide is 0
+	   *  {Number} currentSlide     Index of the current active slide
+	   *  {Boolean} isLeftDisabled  true if the currentSlide is 0
 	   *  {Boolean} isRightDisabled true if the currentSlide is the same as the
 	   *                            total length of the slides
 	   */
@@ -21586,9 +21585,10 @@
 	  },
 
 	  /**
-	   * [slideChange description]
-	   * @param  {[type]} newCurrentSlide [description]
-	   * @return {[type]}                 [description]
+	   * Invoked when the user triggers an action to change a slide. Sets states to
+	   * be passed to child components.
+	   *
+	   * @param  {Number} index of the new active slide
 	   */
 	  slideChange: function slideChange(newCurrentSlide) {
 	    var isLeftDisabled = newCurrentSlide === 0;
@@ -21647,15 +21647,16 @@
 	var React = __webpack_require__(1);
 
 	/**
-	 * Slide
+	 * Carousel slide
 	 */
 	var CarouselSlide = React.createClass({
 	  displayName: 'CarouselSlide',
 
 
 	  /**
-	   * [isActiveSlide description]
-	   * @return {Boolean} [description]
+	   * Checks to see if the index passed is the active (current) slide.
+	   * @param  {Number} index index of the active slide
+	   * @return {Boolean}
 	   */
 	  isActiveSlide: function isActiveSlide() {
 	    return this.props.index === this.props.currentSlide;
@@ -21694,8 +21695,10 @@
 
 
 	  /**
-	   * [getInitialState description]
-	   * @return {[type]} [description]
+	   * Set initial state properties
+	   *
+	   * @return {Object} state initial props used throughout all other
+	   *                        child components
 	   */
 	  getInitialState: function getInitialState() {
 	    return {
@@ -21705,17 +21708,23 @@
 	  },
 
 	  /**
-	   * [thumbWidth description]
-	   * @return {[type]} [description]
+	   * Returns the width of the thumbnail
+	   *
+	   * TODO: The number is "hard-coded" this is because of time constraints.
+	   *       This function should return a dynamic value.
+	   *
+	   * @return {Number} width the width of the thumbnail
 	   */
 	  thumbWidth: function thumbWidth() {
 	    return 66;
 	  },
 
 	  /**
-	   * [componentWillReceiveProps description]
-	   * @param  {[type]} newProps [description]
-	   * @return {[type]}          [description]
+	   * Invoked when a component is receiving new props.
+	   *
+	   * NOTE: This method is not called for the initial render.
+	   *
+	   * @param  {Object} newProps the new properties passed to the component
 	   */
 	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
 	    var width = newProps.totalSlides * this.thumbWidth();
@@ -21725,7 +21734,10 @@
 	  },
 
 	  /**
-	   * [getControlOffset description]
+	   * Calculate the offset of the thumbnails based on active slide index.
+	   *
+	   * @param {Number} index index of the new active slide
+	   * @return {Number} offset the value to offset the UI controls (thumbnails) by.
 	   */
 	  getControlOffset: function getControlOffset(index) {
 	    var thumbWidth = this.thumbWidth();
@@ -21748,7 +21760,7 @@
 
 	  /**
 	   * Checks to see if the index passed is the active (current) slide.
-	   * @param  {Boolean} index index of the active slide
+	   * @param  {Number} index index of the active slide
 	   * @return {Boolean}
 	   */
 	  isActiveSlide: function isActiveSlide(index) {
@@ -21757,6 +21769,7 @@
 
 	  /**
 	   * Add class to control thumbnail if conditions are met.
+	   *
 	   * @param  {Boolean} index index of the active slide
 	   * @return {String} className the class name to be used
 	   */
@@ -21779,8 +21792,9 @@
 	  },
 
 	  /**
-	   * [slideChange description]
-	   * @param  {[type]} index [description]
+	   * Invoked when the user triggers an action to change a slide.
+	   *
+	   * @param  {Number} index of the new active slide
 	   * @return {[type]}       [description]
 	   */
 	  slideChange: function slideChange(index) {
@@ -21866,8 +21880,7 @@
 	var React = __webpack_require__(1);
 
 	/**
-	 * [ProductPrice description]
-	 * @type {[type]}
+	 * Displays the product price.
 	 */
 	var ProductPrice = React.createClass({
 	  displayName: "ProductPrice",
@@ -21907,8 +21920,7 @@
 	var React = __webpack_require__(1);
 
 	/**
-	 * [ProductName description]
-	 * @type {[type]}
+	 * Component that displays the product name
 	 */
 	var ProductName = React.createClass({
 	  displayName: 'ProductName',
@@ -21943,8 +21955,7 @@
 	var React = __webpack_require__(1);
 
 	/**
-	 * [ProductOffers description]
-	 * @type {[type]}
+	 * Displays a stylized list containing product offers.
 	 */
 	var ProductOffers = React.createClass({
 	  displayName: 'ProductOffers',
@@ -21990,54 +22001,57 @@
 
 
 	  /**
-	   * [getInitialState description]
-	   * @return {[type]} [description]
+	   * Set initial state properties
+	   *
+	   * @return {Object} state initial props used throughout all other
+	   *                        child components
 	   */
 	  getInitialState: function getInitialState() {
 	    return {
-	      quantity: 0,
+	      quantity: 1,
 	      isMinQuantity: true
 	    };
 	  },
 
 	  /**
-	   * [isMinQuantity description]
+	   * Determine if this is the minimum quantity allowed for product.
 	   * @return {Boolean} [description]
 	   */
-	  isMinQuantity: function isMinQuantity() {
-	    return this.state.quantity - 1 === this.props.minQuantity;
+	  isMinQuantity: function isMinQuantity(quantity) {
+	    return quantity === this.props.minQuantity;
 	  },
 
 	  /**
-	   * [isMaxQuantity description]
-	   * @return {Boolean} [description]
+	   * Determine if this is the maximum quantity allowed for product.
+	   *
+	   * @return {Boolean} isMaxQuantity
 	   */
-	  isMaxQuantity: function isMaxQuantity() {
-	    return this.state.quantity + 1 === this.props.maxQuantity;
+	  isMaxQuantity: function isMaxQuantity(quantity) {
+	    return quantity === this.props.maxQuantity;
 	  },
 
 	  /**
-	   * [addQuantity description]
+	   * Increment and set State Quantity by 1
 	   */
 	  addQuantity: function addQuantity() {
+	    var quantity = this.state.quantity + 1;
 	    this.setState({
-	      quantity: this.state.quantity + 1,
-	      isMinQuantity: this.isMinQuantity(),
-	      isMaxQuantity: this.isMaxQuantity()
+	      quantity: quantity,
+	      isMinQuantity: this.isMinQuantity(quantity),
+	      isMaxQuantity: this.isMaxQuantity(quantity)
 	    });
 	  },
 
 	  /**
-	   * [decQuantity description]
-	   * @return {[type]} [description]
+	   * Decrement and set State Quantity by 1
 	   */
 	  decQuantity: function decQuantity() {
-	    var quantity = this.state.quantity;
+	    var quantity = this.state.quantity - 1;
 
 	    this.setState({
-	      quantity: quantity - 1,
-	      isMinQuantity: this.isMinQuantity(),
-	      isMaxQuantity: this.isMaxQuantity()
+	      quantity: quantity,
+	      isMinQuantity: this.isMinQuantity(quantity),
+	      isMaxQuantity: this.isMaxQuantity(quantity)
 	    });
 	  },
 
@@ -22099,15 +22113,19 @@
 	  displayName: "ProductBuyActions",
 
 
-	  componentDidMount: function componentDidMount() {
-	    // console.log(this.props)
-	  },
-
+	  /**
+	   * Determine wether or not hte product is available in store.
+	   * @return {Boolean}
+	   */
 	  isAvailableRetail: function isAvailableRetail() {
 	    var availability = this.props.availabilityCode;
 	    return availability === "0" || availability === "2";
 	  },
 
+	  /**
+	   * Determine wether or not hte product is available online.
+	   * @return {Boolean}
+	   */
 	  isAvailableOnline: function isAvailableOnline() {
 	    var availability = this.props.availabilityCode;
 	    return availability === "0" || availability === "1";
@@ -22166,8 +22184,7 @@
 	var React = __webpack_require__(1);
 
 	/**
-	 * [ProductSecondaryActions description]
-	 * @type {[type]}
+	 * Displays secondary (lower priority) actions
 	 */
 	var ProductSecondaryActions = React.createClass({
 	  displayName: "ProductSecondaryActions",
@@ -22228,8 +22245,7 @@
 	var React = __webpack_require__(1);
 
 	/**
-	 * [ProductDetail description]
-	 * @type {[type]}
+	 * Component that displays additional product information (highlights)
 	 */
 	var ProductDetail = React.createClass({
 	  displayName: "ProductDetail",

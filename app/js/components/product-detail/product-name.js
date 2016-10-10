@@ -1,8 +1,7 @@
 var React = require('react');
 
 /**
- * [ProductName description]
- * @type {[type]}
+ * Component that displays the product name
  */
 var ProductName = React.createClass({
 

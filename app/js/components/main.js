@@ -3,8 +3,7 @@ var ReactDOM = require('react-dom');
 var Product = require('./product')
 
 /**
- * [Main description]
- * @type {[type]}
+ * Main Application component
  */
 var Main = React.createClass({
 

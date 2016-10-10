@@ -1,17 +1,20 @@
 var React = require('react');
 
 /**
- * Slide
+ * Carousel slide
  */
 var CarouselSlide = React.createClass({
 
+
   /**
-   * [isActiveSlide description]
-   * @return {Boolean} [description]
+   * Checks to see if the index passed is the active (current) slide.
+   * @param  {Number} index index of the active slide
+   * @return {Boolean}
    */
   isActiveSlide: function(){
     return this.props.index === this.props.currentSlide
   },
+  
 
   /**
    * Renders the component
