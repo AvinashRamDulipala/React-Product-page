@@ -9,14 +9,13 @@ var ProductSecondaryActions = require('./product-detail/product-secondary-action
 var ProductDetail = require('./product-detail/product-detail');
 
 /**
-* [Product description]
-* @type {[type]}
+* Product Detail Component
 */
   var Product = React.createClass({
 
+
   /**
-   * [componentWillMount description]
-   * @return {[type]} [description]
+   * Called before the render method is executed. Fetches data and sets it.
    */
   componentWillMount: function() {
     let self = this;
@@ -42,17 +41,21 @@ var ProductDetail = require('./product-detail/product-detail');
 
   },
 
+
   /**
-   * [componentWillUnmount description]
-   * @return {[type]} [description]
+   * Invoked immediately before component is unmounted from the DOM.
+   * Abort data fetch.
    */
   componentWillUnmount: function() {
     this.serverRequest.abort(); // trigger fetch cancellation
   },
 
+
   /**
-   * [getInitialState description]
-   * @return {[type]} [description]
+   * Set initial state properties
+   *
+   * @return {Object} state initial props used throughout all other
+   *                        child components
    */
   getInitialState: function() {
     return {
@@ -64,6 +67,7 @@ var ProductDetail = require('./product-detail/product-detail');
       features: []
     }
   },
+  
 
   /**
   * Renders the component

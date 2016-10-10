@@ -1,8 +1,7 @@
 var React = require('react');
 
 /**
- * [ProductSecondaryActions description]
- * @type {[type]}
+ * Displays secondary (lower priority) actions
  */
 var ProductSecondaryActions = React.createClass({
 
@@ -14,13 +13,13 @@ var ProductSecondaryActions = React.createClass({
     return (
       <div className="product-secondary-actions">
         <div className="row no-gutter">
-          <div className="col-sm-4">
+          <div className="col-xs-4">
             <button className="btn btn-full">Add to Registry</button>
           </div>
-          <div className="col-sm-4">
+          <div className="col-xs-4">
             <button className="btn btn-full">Add to List</button>
           </div>
-          <div className="col-sm-4">
+          <div className="col-xs-4">
             <button className="btn btn-full">Share</button>
           </div>
         </div>

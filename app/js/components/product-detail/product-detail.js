@@ -1,8 +1,7 @@
 var React = require('react');
 
 /**
- * [ProductDetail description]
- * @type {[type]}
+ * Component that displays additional product information (highlights)
  */
 var ProductDetail = React.createClass({
 

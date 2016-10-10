@@ -55,7 +55,9 @@ $thumbs-height: 64px;
     font-size: 2rem;
     color: #999;
     font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+    
     &:disabled{
+      cursor: not-allowed;
       color: #f0f0f0;
     }
   }
@@ -70,19 +72,23 @@ $thumbs-height: 64px;
   }
 
   .controls{
-    width: $thumbs-shown * $thumbs-width + ($thumbs-shown * 3);
     height: $thumbs-height + 2;
-    display: inline-block;
     margin: 0;
-
+    position: relative;
+    overflow: hidden;
     li {
       list-style-type: none;
       width: $thumbs-width;
       height: $thumbs-height;
       border: 1px solid transparent;
       cursor: pointer;
-      // display: none;
-
+      a{
+        display: block;
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;          /* Likely future */
+      }
       &, img{
         display: inline-block;
         border-radius: 3px;

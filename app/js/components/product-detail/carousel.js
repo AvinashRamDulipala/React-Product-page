@@ -12,8 +12,8 @@ var Carousel = React.createClass({
    * Sets the initial state properties on the components
    *
    * @return Object state
-   *  {Number} currentSlide Index of the current active slide
-   *  {Boolean} isLeftDisabled true if the currentSlide is 0
+   *  {Number} currentSlide     Index of the current active slide
+   *  {Boolean} isLeftDisabled  true if the currentSlide is 0
    *  {Boolean} isRightDisabled true if the currentSlide is the same as the
    *                            total length of the slides
    */
@@ -23,15 +23,16 @@ var Carousel = React.createClass({
       isLeftDisabled: true,
       isRightDisabled: false
     }
-    
+
     return state;
   },
 
 
   /**
-   * [slideChange description]
-   * @param  {[type]} newCurrentSlide [description]
-   * @return {[type]}                 [description]
+   * Invoked when the user triggers an action to change a slide. Sets states to
+   * be passed to child components.
+   *
+   * @param  {Number} index of the new active slide
    */
   slideChange: function (newCurrentSlide){
     let isLeftDisabled = (newCurrentSlide === 0)

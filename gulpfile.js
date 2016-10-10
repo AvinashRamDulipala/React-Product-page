@@ -48,7 +48,7 @@ gulp.task("webpack-dev-server", function(callback) {
         }
     })
 
-    server.listen(8010, "localhost", function(err) {
+    server.listen(8000, "localhost", function(err) {
         if (err) throw new gutil.PluginError("webpack-dev-server", err);
         gutil.log("[webpack-dev-server]", "running");
     });

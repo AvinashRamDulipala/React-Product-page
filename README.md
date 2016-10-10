@@ -11,6 +11,7 @@ If you havent already, you will need to install Node, Gulp and Sass.
 
 1. run `npm install` to install dependencies required by project
 2. run `gulp` to start webpack, webpack-dev-server and all associated tasks
+3. mosey on over to `localhost:8000`
 
 #### Directory Structure
 - `/app`

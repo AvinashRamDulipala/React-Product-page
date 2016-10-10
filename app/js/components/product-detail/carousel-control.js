@@ -6,9 +6,12 @@ var React = require('react');
  */
 var CarouselControl = React.createClass({
 
+
   /**
-   * [getInitialState description]
-   * @return {[type]} [description]
+   * Set initial state properties
+   *
+   * @return {Object} state initial props used throughout all other
+   *                        child components
    */
   getInitialState: function() {
     return {
@@ -17,18 +20,26 @@ var CarouselControl = React.createClass({
     }
   },
 
+
   /**
-   * [thumbWidth description]
-   * @return {[type]} [description]
+   * Returns the width of the thumbnail
+   *
+   * TODO: The number is "hard-coded" this is because of time constraints.
+   *       This function should return a dynamic value.
+   *
+   * @return {Number} width the width of the thumbnail
    */
   thumbWidth: function(){
       return 66;
   },
 
+
   /**
-   * [componentWillReceiveProps description]
-   * @param  {[type]} newProps [description]
-   * @return {[type]}          [description]
+   * Invoked when a component is receiving new props.
+   *
+   * NOTE: This method is not called for the initial render.
+   *
+   * @param  {Object} newProps the new properties passed to the component
    */
   componentWillReceiveProps: function(newProps){
     let width = (newProps.totalSlides * this.thumbWidth());
@@ -39,20 +50,17 @@ var CarouselControl = React.createClass({
 
 
   /**
-   * [getControlOffset description]
+   * Calculate the offset of the thumbnails based on active slide index.
+   *
+   * @param {Number} index index of the new active slide
+   * @return {Number} offset the value to offset the UI controls (thumbnails) by.
    */
   getControlOffset: function(index) {
     let thumbWidth = this.thumbWidth();
     let offset = -(index * thumbWidth);
     let isSecondToFirst = (index === -1);
     let isSecondToLast = (index === this.props.totalSlides - 2);
-    console.log({
-      index: index,
-      totalSlides: this.props.totalSlides,
-      isSecondToFirst: isSecondToFirst,
-      isSecondToLast: isSecondToLast
-    })
-
+    
     if (isSecondToFirst || isSecondToLast) {
       return false;
     }
@@ -63,7 +71,7 @@ var CarouselControl = React.createClass({
 
   /**
    * Checks to see if the index passed is the active (current) slide.
-   * @param  {Boolean} index index of the active slide
+   * @param  {Number} index index of the active slide
    * @return {Boolean}
    */
   isActiveSlide: function(index){
@@ -73,6 +81,7 @@ var CarouselControl = React.createClass({
 
   /**
    * Add class to control thumbnail if conditions are met.
+   *
    * @param  {Boolean} index index of the active slide
    * @return {String} className the class name to be used
    */
@@ -99,8 +108,9 @@ var CarouselControl = React.createClass({
 
 
   /**
-   * [slideChange description]
-   * @param  {[type]} index [description]
+   * Invoked when the user triggers an action to change a slide.
+   *
+   * @param  {Number} index of the new active slide
    * @return {[type]}       [description]
    */
   slideChange: function(index){

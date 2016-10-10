@@ -17,8 +17,18 @@ div[class*='col'] {
   box-sizing: border-box;
 }
 
+.container{
+  max-width:$container-width;
+  margin: 0 auto;
+}
+
 .row{
   padding: 0 15px;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
   &.no-gutter{
     &, div[class^='col-']{
       padding: 0;
@@ -62,72 +72,5 @@ div[class*='col'] {
       padding-right: ($gutter/2);
       padding-left: ($gutter/2);
     }
-  }
-}
-
-
-.row{
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-
-.container{
-  max-width:$container-width;
-  margin: 0 auto;
-}
-
-
-
-.container.demo{
-  box-shadow: inset 0 0 0 1px #F8BBD0;
-  padding: $gutter ($gutter/2) ($gutter/2);
-  margin: 0 auto 15px;
-  position:relative;
-  &:before{
-    @extend code;
-    content:'.container';
-    position:absolute;
-    top:-6px;
-    left: $gutter;
-    color: #D81B60;
-    background: #fff;
-    padding:0 5px;
-    font-size: 12px;
-  }
-  .row{
-    margin: 0 0 15px;
-    & > div{
-      & > div{
-        font-weight: 600;
-        box-shadow: inset 0 0 0 1px #F06292;
-        text-align: center;
-        color: #C51162;
-        background: #F8BBD0;
-        padding: 15px 0;
-        width: 100%;
-      }
-    }
-  }
-}
-
-
-.notification{
-  border:1px solid #E0E0E0;
-  background: #EEEEEE;
-  color: #212121;
-  padding: 0 15px;
-  &.theme-info{
-    border:1px solid #80CBC4;
-    background: #B2DFDB;
-    color: #004D40;
-  }
-  &.theme-warn{
-    border:1px solid #FDD835;
-    background: #FFF9C4;
-    color: #424242;
   }
 }

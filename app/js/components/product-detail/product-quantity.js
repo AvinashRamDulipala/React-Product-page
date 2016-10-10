@@ -7,54 +7,57 @@ var React = require('react');
 var ProductQuantity = React.createClass({
 
   /**
-   * [getInitialState description]
-   * @return {[type]} [description]
+   * Set initial state properties
+   *
+   * @return {Object} state initial props used throughout all other
+   *                        child components
    */
   getInitialState: function() {
     return {
-      quantity: 0,
+      quantity: 1,
       isMinQuantity: true
     }
   },
 
   /**
-   * [isMinQuantity description]
+   * Determine if this is the minimum quantity allowed for product.
    * @return {Boolean} [description]
    */
-  isMinQuantity: function(){
-    return (this.state.quantity - 1 === this.props.minQuantity)
+  isMinQuantity: function(quantity){
+    return (quantity === this.props.minQuantity)
   },
 
   /**
-   * [isMaxQuantity description]
-   * @return {Boolean} [description]
+   * Determine if this is the maximum quantity allowed for product.
+   *
+   * @return {Boolean} isMaxQuantity
    */
-  isMaxQuantity: function(){
-    return (this.state.quantity + 1 === this.props.maxQuantity)
+  isMaxQuantity: function(quantity){
+    return (quantity === this.props.maxQuantity)
   },
 
   /**
-   * [addQuantity description]
+   * Increment and set State Quantity by 1
    */
   addQuantity: function() {
-      this.setState({
-        quantity: this.state.quantity + 1,
-        isMinQuantity: this.isMinQuantity(),
-        isMaxQuantity: this.isMaxQuantity()
-      });
+    let quantity = this.state.quantity + 1;
+    this.setState({
+      quantity: quantity,
+      isMinQuantity: this.isMinQuantity(quantity),
+      isMaxQuantity: this.isMaxQuantity(quantity)
+    });
   },
 
   /**
-   * [decQuantity description]
-   * @return {[type]} [description]
+   * Decrement and set State Quantity by 1
    */
   decQuantity: function() {
-    let quantity = this.state.quantity;
+    let quantity = this.state.quantity - 1;
 
     this.setState({
-      quantity: quantity - 1,
-      isMinQuantity: this.isMinQuantity(),
-      isMaxQuantity: this.isMaxQuantity()
+      quantity: quantity,
+      isMinQuantity: this.isMinQuantity(quantity),
+      isMaxQuantity: this.isMaxQuantity(quantity)
     })
 
   },
