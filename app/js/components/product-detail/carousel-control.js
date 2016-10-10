@@ -60,7 +60,7 @@ var CarouselControl = React.createClass({
     let offset = -(index * thumbWidth);
     let isSecondToFirst = (index === -1);
     let isSecondToLast = (index === this.props.totalSlides - 2);
-    
+
     if (isSecondToFirst || isSecondToLast) {
       return false;
     }
@@ -155,7 +155,7 @@ var CarouselControl = React.createClass({
             {images.map(function(image, index) {
               return(
                 <li key={'slide-' + index} className={this.className(index)}>
-                  <a
+                  <a tabIndex="-1"
                     href="javascript:void(0)"
                     onClick={this.slideChange.bind(null, index)}>
                     <img
