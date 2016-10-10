@@ -21841,7 +21841,7 @@
 	              { key: 'slide-' + index, className: this.className(index) },
 	              React.createElement(
 	                'a',
-	                {
+	                { tabIndex: '-1',
 	                  href: 'javascript:void(0)',
 	                  onClick: this.slideChange.bind(null, index) },
 	                React.createElement('img', {
