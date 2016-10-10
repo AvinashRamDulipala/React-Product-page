@@ -21744,12 +21744,6 @@
 	    var offset = -(index * thumbWidth);
 	    var isSecondToFirst = index === -1;
 	    var isSecondToLast = index === this.props.totalSlides - 2;
-	    console.log({
-	      index: index,
-	      totalSlides: this.props.totalSlides,
-	      isSecondToFirst: isSecondToFirst,
-	      isSecondToLast: isSecondToLast
-	    });
 
 	    if (isSecondToFirst || isSecondToLast) {
 	      return false;
@@ -22203,7 +22197,7 @@
 	        { className: "row no-gutter" },
 	        React.createElement(
 	          "div",
-	          { className: "col-sm-4" },
+	          { className: "col-xs-4" },
 	          React.createElement(
 	            "button",
 	            { className: "btn btn-full" },
@@ -22212,7 +22206,7 @@
 	        ),
 	        React.createElement(
 	          "div",
-	          { className: "col-sm-4" },
+	          { className: "col-xs-4" },
 	          React.createElement(
 	            "button",
 	            { className: "btn btn-full" },
@@ -22221,7 +22215,7 @@
 	        ),
 	        React.createElement(
 	          "div",
-	          { className: "col-sm-4" },
+	          { className: "col-xs-4" },
 	          React.createElement(
 	            "button",
 	            { className: "btn btn-full" },
